@@ -1,0 +1,19 @@
+{
+  "name": "dynamodb-odm",
+  "version": "0.0.1",
+  "description": "A mongoose like Object Data Manager for DynamoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "dynamodb",
+    "ODM"
+  ],
+  "author": "Weston Renoud",
+  "license": "BSD",
+  "dependencies": {
+    "dynamodb": "~0.3.6",
+    "hashids": "~0.1.4"
+  }
+}
