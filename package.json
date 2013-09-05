@@ -13,7 +13,7 @@
   "author": "Weston Renoud",
   "license": "BSD",
   "dependencies": {
-    "dynamodb": "~0.3.6",
+    "dynamodb": git://github.com/wrenoud/node-dynamodb.git,
     "hashids": "~0.1.4"
   }
 }
