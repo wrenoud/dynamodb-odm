@@ -86,7 +86,7 @@ Model Methods
 * `query` (`find`) - queries a hash bucket on range or LSI
 
 
-### `Model.create()` ###
+### `Model.create(throughput, callback)` ###
 
 High level wrapper for [DynamoDB API method CreateTable](http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html). Creates the DynamodDB table based on the model schema definition.
 
@@ -94,6 +94,10 @@ High level wrapper for [DynamoDB API method CreateTable](http://docs.aws.amazon.
 
 The table will *not* be avaliable imediately and can take up to a minute to initialize.
 
+#### Parameters ####
+
+`throughput` - `{write: X, read: Y}` default is `{read:2, write:1}`
+`callback` - function(err, tableDetails) err is set if an error occured
 
 ### `Model.update(conditions, updates, callback)` ###
 
