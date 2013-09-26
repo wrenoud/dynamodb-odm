@@ -76,6 +76,45 @@ The Schema definitions are very similar to the mongoose semantics, except there 
 
 * `compress` - (Boolean) indicates the object should be compressed after serialization (*to be implemented*)
 
+### Custom Attribute Type ###
+
+If you have several similar attributes that have shared setters/getters/validators it might be easiest to define it as a custom type.
+
+Keep in mind that all attributes must be cast as a String or Number (or array of either) to be stored in DynamoDB, but you can use a getter to convert it back to your desired type. This is how Boolean, Date, DateArray and Object are supported.
+
+Here is an example showing how to attach setter, getter, or validator functions (see the attribute option descriptions for set, get and validate above for an explaination of what they do).
+
+```JavaScript
+dynamodb.Schema.Types.myType = {
+    name: 'myType',
+    caster: String,
+    option_handler: function(self){
+        // default options
+        self.set(function(val){
+            // alter value
+            return altered_value;
+        });
+        self.get(function(val){
+            // alter value
+            return altered_value;
+        });
+        self.validate(
+            function (val){
+                // some condition the value must meet
+                return conditional;
+            },
+            "Text description of validation"
+        );
+
+        // handle options specified in schema
+        if(self.options.lowercase){
+            self.set(function(val){
+                return val.toLowerCase();
+            });
+        }
+    }
+}
+```
 
 Model Methods
 --------------------------------------------------------------------------------
