@@ -1,6 +1,8 @@
 dynamodb-odm
 ============
 
+The dynamodb-odm project is a node.js (server-side javascript) library for object data management for use with the Amazon Web Service (AWS) DynamoDB. DynamoDB is a noSQL scalable database solution. The library provides for a schema definition of data objects contained in the database for ease of interaction and validation.
+
 Example Usage
 -------------
 
